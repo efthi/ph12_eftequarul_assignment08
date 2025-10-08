@@ -12,7 +12,7 @@ const Apps = () => {
     ? allProducts.filter(product =>
         product.title.toLowerCase().includes(term)) : allProducts;
         
-        console.log(searchedProducts);
+        // console.log(searchedProducts);
     return (
         <>
         <div>
