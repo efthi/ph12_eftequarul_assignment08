@@ -1,7 +1,19 @@
 import React from 'react';
 
 const Cards = ({product}) => {
-const {image, title, size, ratingAvg} = product
+const {image, title, downloads, ratingAvg} = product
+
+function formatDownloads(num) {
+  if (num >= 1_000_000_000) {
+    return (num / 1_000_000_000).toFixed(1) + "B";
+  } else if (num >= 1_000_000) {
+    return (num / 1_000_000).toFixed(1) + "M";
+  } else if (num >= 1_000) {
+    return (num / 1_000).toFixed(1) + "K";
+  } else {
+    return num;
+  }
+}
 
     return (
         <>
@@ -10,10 +22,10 @@ const {image, title, size, ratingAvg} = product
                 <img className='w-auto h-auto' src={image} alt={title} />
             </figure>
             <div className='card-body'>
-                <h2 className='card-title'>{title}</h2>
+                <h3 className='card-title text-[1rem]'>{title}</h3>
                 <div className="flex justify-between">
-                    <span>Size: {size}MB</span>
-                    <span>Rating: {ratingAvg}</span>
+                    <span> ⬇️ {formatDownloads(downloads)}</span>
+                    <span> ⭐ {ratingAvg}</span>
                 </div>
                 
              </div>

@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from '../Components/Container';
 import useProducts from '../hooks/useProducts';
 import Cards from '../Components/Cards';
 
 
 const Home = () => {
-    const { loading, error, products } = useProducts()
+    const { loading, error, products } = useProducts();
     
-    console.log(products);
-    const featuredProducts = products.slice(0, 12)
+    const [showAll, setShowAll] = useState(false);
+
+    //console.log(products);
+    console.log(showAll);
+    
+    const featuredProducts = showAll ? products : products.slice(0, 8);
 
     return (
         <>
@@ -22,6 +26,9 @@ const Home = () => {
             {featuredProducts.map(product => (
                 <Cards key={product.id} product={product} />
             ))}
+        </div>
+        <div className='mx-auto mb-10 text-center'>
+            <button onClick={() =>setShowAll(!showAll)} className='btn btn-soft btn-primary'>{showAll ? 'Show Less' : 'Show All'}</button>
         </div>
         </>
         
