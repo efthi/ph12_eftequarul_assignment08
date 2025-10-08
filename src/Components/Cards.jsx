@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Cards = ({product}) => {
-const {image, title, downloads, ratingAvg} = product
+const {id, image, title, downloads, ratingAvg} = product
 
 function formatDownloads(num) {
   if (num >= 1_000_000_000) {
@@ -17,7 +18,9 @@ function formatDownloads(num) {
 
     return (
         <>
+        <Link to={`/appsdetails/${id}`} >
         <div className='card bg-base-100 shadow-2xl'>
+          
             <figure className='h-48 overflow-hidden'>
                 <img className='w-auto h-auto' src={image} alt={title} />
             </figure>
@@ -30,6 +33,8 @@ function formatDownloads(num) {
                 
              </div>
         </div>
+        </Link>
+        
         </>
     );
 };
