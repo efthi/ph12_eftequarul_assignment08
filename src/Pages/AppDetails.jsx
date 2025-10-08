@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router';
+import Spinner from '../Components/Spinner';
 import useProducts from '../hooks/useProducts';
 import RatingChart from '../Components/RatingChart';
 import icondownloads from '../../public/assets/icon-downloads.png';
@@ -11,7 +12,7 @@ const AppDetails = () => {
     const {products, loading, error } = useProducts();
     const product = products.find(p => String(p.id) === id)
     
-    if(loading) return <p>Loading......</p>
+    if(loading) return <Spinner></Spinner>
     const {image, title, companyName, description, size, reviews, ratingAvg, downloads, ratings = [] } = product
     function formatDownloads(num) {
     if (num >= 1_000_000_000) {
@@ -40,7 +41,7 @@ const AppDetails = () => {
                         <span className='font-light'>Developed by </span>
                         <span className='text-[#7d44e9]'>{companyName}</span></h4>
                     <span className='divider'></span>
-                    <div className='flex flex-row gap-30'>
+                    <div className='flex flex-col md:flex-row md:gap-30'>
                         <div>
                             <img src={icondownloads} alt="" /> 
                             <p>Downloads</p>
