@@ -3,25 +3,30 @@ import App from "../App";
 import Home from "../Pages/Home"
 import Apps from "../Pages/Apps"
 import Installation from "../Pages/Installation"
-
+import ErrorPage from '../Pages/ErrorPage'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-
+    errorElement: <ErrorPage />,
+    hydrateFallbackElement: <p>Loading...</p>,
     children:[
       {
         index: true,
-        Component: Home,
+        element: <Home />,
       },
       {
-        path:'/Apps',
-        Component: Apps,
+        path:'apps',
+        element: <Apps />,
       },
       {
-        path:'/Installation',
-        Component: Installation,
+        path:'installation',
+        element: <Installation />,
+      },
+      {
+        path: "*",
+        element: <ErrorPage />
       },
     ]
   }
