@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router';
 import useProducts from '../hooks/useProducts';
+import RatingChart from '../Components/RatingChart';
 import icondownloads from '../../public/assets/icon-downloads.png';
 import iconratings from '../../public/assets/icon-ratings.png';
 import iconreview from '../../public/assets/icon-review.png';
@@ -62,10 +63,9 @@ const AppDetails = () => {
                     </div>
                 </div>
             </div>
-             <div className="mx-auto w-6/12">
-                { ratings.map(r => (
-                    <p key={r.name}>{r.name}</p> 
-                ) )}
+             <div className="mx-auto w-11/12">
+                <p>Ratings:</p>
+                <RatingChart ratings = {ratings}></RatingChart>
              </div>    
             <div className="mx-auto w-11/12">
                 <p>{description}</p>  
