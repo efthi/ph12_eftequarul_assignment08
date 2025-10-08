@@ -8,10 +8,8 @@ const Home = () => {
     const { loading, error, products } = useProducts();
     
     const [showAll, setShowAll] = useState(false);
-
     //console.log(products);
-    console.log(showAll);
-    
+    //console.log(showAll);
     const featuredProducts = showAll ? products : products.slice(0, 8);
 
     return (

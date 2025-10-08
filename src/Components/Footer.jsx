@@ -9,7 +9,7 @@ const Footer = () => {
                 <p>
                     APP Zone Inc.
                     <br />
-                    &copy; 2025 | Efthaqur Alam | Programming Hero Batch - 12
+                    &copy; 2025 | Efthaqur Alam | ~WEB12-0845~ | PH B-12
                 </p>
             </aside>
         <nav>
