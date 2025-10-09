@@ -12,10 +12,10 @@ const Installation = () => {
     
     const sortItem = (() => {
         if(sortOrder === 'size-asc'){
-            return [...installed].sort((a,b) => a.size - b.size);
+            return [...installed].sort((a,b) => a.downloads - b.downloads);
         }
         else if(sortOrder === 'size-desc'){
-            return [...installed].sort((a,b)=>b.size - a.size);
+            return [...installed].sort((a,b)=>b.downloads - a.downloads);
         }
         else {
             return installed;

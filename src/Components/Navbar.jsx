@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router'
-import logo from '../../public/assets/logo.png'
+import logo from '../../public/assets/logo.png';
+import { FaGithub } from "react-icons/fa";
+import { FcHome, FcSmartphoneTablet , FcMultipleInputs   } from "react-icons/fc";
 
 const Navbar = () => {
+    const gitprofile = 'https://github.com/efthi';
+
     return (
         <>
         <div className="navbar bg-base-100 shadow-sm">
@@ -15,13 +19,13 @@ const Navbar = () => {
                     tabIndex={0}
                     className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                     <li>
-                        <NavLink to='/' className={({ isActive }) => isActive ? "btn btn-active" : ""}>Home</NavLink>
+                        <NavLink to='/' className={({ isActive }) => isActive ? "btn btn-active" : ""}><FcHome /> Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to='apps' className={({ isActive }) => isActive ? "btn btn-active" : ""} >Apps</NavLink>
+                        <NavLink to='apps' className={({ isActive }) => isActive ? "btn btn-active" : ""} ><FcSmartphoneTablet  /> Apps</NavLink>
                     </li>
                     <li>
-                        <NavLink to='installation' className={({ isActive }) => isActive ? "btn btn-active" : ""}>Installation</NavLink>
+                        <NavLink to='installation' className={({ isActive }) => isActive ? "btn btn-active" : ""}><FcMultipleInputs /> Installation</NavLink>
                     </li>
                 </ul>
                 </div>
@@ -31,18 +35,18 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li>
-                        <NavLink to='/' className={({ isActive }) => isActive ? "btn btn-active" : ""}>Home</NavLink>
+                        <NavLink to='/' className={({ isActive }) => isActive ? "underline" : ""}> <FcHome />Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to='apps' className={({ isActive }) => isActive ? "btn btn-active" : ""}>Apps</NavLink>
+                        <NavLink to='apps' className={({ isActive }) => isActive ? "underline" : ""}> <FcSmartphoneTablet  /> Apps</NavLink>
                     </li>
                     <li>
-                        <NavLink to='installation' className={({ isActive }) => isActive ? "btn btn-active" : ""}>Installation</NavLink>
+                        <NavLink to='installation' className={({ isActive }) => isActive ? "underline" : ""}><FcMultipleInputs /> Installation</NavLink>
                     </li>
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn btn-primary">Contribute</a>
+                <a className="btn btn-primary" href={gitprofile}><FaGithub /> Contribute</a>
             </div>
         </div>
         </>
