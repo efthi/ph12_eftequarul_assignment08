@@ -22,6 +22,13 @@ const Installation = () => {
         }
     })()
     
+    const removeApps = (id) => {
+        const currentApps = JSON.parse(localStorage.getItem('applist'))
+        let updateList = currentApps.filter(p => p.id !== id);
+        setInstalled(updateList);
+        localStorage.setItem('applist', JSON.stringify(updateList));
+    }
+
     return (
         <>
         <div>
@@ -40,6 +47,7 @@ const Installation = () => {
             </label>
         </div>
         <div className="mx-auto flex flex-col max-w-10/12 m-2">
+            <p className={`text-center font-semibold text-3xl m-5 ${installed.length ? "hidden" : ""}`}>No App Installed!</p>
             {sortItem.map(p => 
                 <div key={p.id} className="card card-side bg-base-100 shadow-sm">
                 <figure>
@@ -52,7 +60,7 @@ const Installation = () => {
                     <p><span> ⬇️ {formatDownloads(p.downloads)}</span>
                     <span> ⭐ {p.ratingAvg}</span></p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-success">Uninstall</button>
+                        <button onClick={()=>removeApps(p.id)} className="btn btn-success">Uninstall</button>
                     </div>
                 </div>
             </div>
