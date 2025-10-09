@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import {formatDownloads} from '../utilis/custom'
+import {formatDownloads} from '../utilis/custom';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Installation = () => {
     const [installed, setInstalled] = useState([]);
@@ -27,6 +28,7 @@ const Installation = () => {
         let updateList = currentApps.filter(p => p.id !== id);
         setInstalled(updateList);
         localStorage.setItem('applist', JSON.stringify(updateList));
+        toast.warning('App Removed!');
     }
 
     return (
@@ -67,6 +69,15 @@ const Installation = () => {
                 
             )}
         </div>
+        <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            theme="colored"
+            
+        />
 
         </>
     );

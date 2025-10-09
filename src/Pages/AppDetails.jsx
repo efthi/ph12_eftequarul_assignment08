@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import Spinner from '../Components/Spinner';
 import useProducts from '../hooks/useProducts';
@@ -6,38 +6,50 @@ import RatingChart from '../Components/RatingChart';
 import icondownloads from '../../public/assets/icon-downloads.png';
 import iconratings from '../../public/assets/icon-ratings.png';
 import iconreview from '../../public/assets/icon-review.png';
-import {formatDownloads} from '../utilis/custom'
+import {formatDownloads } from '../utilis/custom';
+import { ToastContainer, toast } from 'react-toastify';
 
 const AppDetails = () => {
     const [btnStat, setBtnstat] = useState(false);
-    
+
     const {id}= useParams()
     const {products, loading, error } = useProducts();
+        
+
     const product = products.find(p => String(p.id) === id)
-        if(loading) return <Spinner></Spinner>
+    
+    useEffect(() =>{
+            if(!product?.id) return;
+            let oldAppList = [];
+            try{
+            oldAppList = JSON.parse(localStorage.getItem('applist') || '[]');
+            } catch(err){
+                oldAppList = [];
+            }
+        
+        const installed = oldAppList.some(p => p.id === product.id);
+        if(installed) setBtnstat(true);
+        }, [product?.id]);
+
+    if(loading) return <Spinner></Spinner>
     
     //destructuring    
     const {image, title, companyName, description, size, reviews, ratingAvg, downloads, ratings = [] } = product
     
-    const installApp = () => {
-        const oldAppList = JSON.parse(localStorage.getItem('applist'));
-        let updateAppList = [];
-        if(oldAppList){
-            const isInstalled = oldAppList.some( p => p.id ===product.id);
-            if(isInstalled) return alert('Already Installed!');
-            updateAppList = [...oldAppList, product];
-        }
-        else {
-            updateAppList.push(product);
-            alert('Installed!');
-             setBtnstat(true);
-         
-        }
-        localStorage.setItem('applist', JSON.stringify(updateAppList));
+    const installApp = () => {      
+      const oldAppList = JSON.parse(localStorage.getItem('applist') || '[]');
+    
+      const isInstalled = oldAppList.some(p => String(p.id) === String(product.id));
+      if(isInstalled){
+          setBtnstat(true);
+          toast.error('Already Installed!');
+          return;
+      }
+      const updateAppList =[...oldAppList, product];
+      localStorage.setItem('applist', JSON.stringify(updateAppList));
+      setBtnstat(true);
+      toast.success('Installed!');
     }
-
-
-
 
     return (
         <>
@@ -73,7 +85,9 @@ const AppDetails = () => {
                     
                     </div>
                     <div className='m-5 w-full'>
-                        <button onClick={installApp} disabled={btnStat} className="btn btn-success"> { btnStat ? 'Installed' : 'Install'}</button>
+                        <button onClick={installApp} disabled={btnStat} className="btn btn-success">
+                             {` ${btnStat ? 'Installed' : `Install ${size}MB` } `} 
+                        </button>
                     </div>
                 </div>
             </div>
@@ -86,6 +100,15 @@ const AppDetails = () => {
             </div>
                    
         </div>
+        <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            theme="colored"
+            
+        />
         </>
     );
 };

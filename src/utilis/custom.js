@@ -11,9 +11,3 @@ export function formatDownloads(num) {
 }
 
 
-// export const installedData = () => {
-//     try {
-//         const data = localStorage.getItem('appList')
-        
-//     }
-// }
