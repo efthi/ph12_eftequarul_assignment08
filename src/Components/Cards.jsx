@@ -1,20 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
+import {formatDownloads} from '../utilis/custom'
 
 const Cards = ({product}) => {
 const {id, image, title, downloads, ratingAvg} = product
-
-function formatDownloads(num) {
-  if (num >= 1_000_000_000) {
-    return (num / 1_000_000_000).toFixed(1) + "B";
-  } else if (num >= 1_000_000) {
-    return (num / 1_000_000).toFixed(1) + "M";
-  } else if (num >= 1_000) {
-    return (num / 1_000).toFixed(1) + "K";
-  } else {
-    return num;
-  }
-}
 
     return (
         <>

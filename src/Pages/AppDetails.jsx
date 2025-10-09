@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router';
 import Spinner from '../Components/Spinner';
 import useProducts from '../hooks/useProducts';
@@ -6,25 +6,38 @@ import RatingChart from '../Components/RatingChart';
 import icondownloads from '../../public/assets/icon-downloads.png';
 import iconratings from '../../public/assets/icon-ratings.png';
 import iconreview from '../../public/assets/icon-review.png';
+import {formatDownloads} from '../utilis/custom'
 
 const AppDetails = () => {
+    const [btnStat, setBtnstat] = useState(false);
+    
     const {id}= useParams()
     const {products, loading, error } = useProducts();
     const product = products.find(p => String(p.id) === id)
+        if(loading) return <Spinner></Spinner>
     
-    if(loading) return <Spinner></Spinner>
+    //destructuring    
     const {image, title, companyName, description, size, reviews, ratingAvg, downloads, ratings = [] } = product
-    function formatDownloads(num) {
-    if (num >= 1_000_000_000) {
-        return (num / 1_000_000_000).toFixed(1) + "B";
-    } else if (num >= 1_000_000) {
-        return (num / 1_000_000).toFixed(1) + "M";
-    } else if (num >= 1_000) {
-        return (num / 1_000).toFixed(1) + "K";
-    } else {
-        return num;
+    
+    const installApp = () => {
+        const oldAppList = JSON.parse(localStorage.getItem('applist'));
+        let updateAppList = [];
+        if(oldAppList){
+            const isInstalled = oldAppList.some( p => p.id ===product.id);
+            if(isInstalled) return alert('Already Installed!');
+            updateAppList = [...oldAppList, product];
+        }
+        else {
+            updateAppList.push(product);
+            alert('Installed!');
+             setBtnstat(true);
+         
+        }
+        localStorage.setItem('applist', JSON.stringify(updateAppList));
     }
-}
+
+
+
 
     return (
         <>
@@ -60,7 +73,7 @@ const AppDetails = () => {
                     
                     </div>
                     <div className='m-5 w-full'>
-                        <button className="btn btn-success">{`Install ${size}MB`}</button>
+                        <button onClick={installApp} disabled={btnStat} className="btn btn-success"> { btnStat ? 'Installed' : 'Install'}</button>
                     </div>
                 </div>
             </div>
