@@ -26,7 +26,7 @@ const Apps = () => {
             </label>
         </div>
         <div className='mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 mb-10 max-w-11/12'>
-            
+            <p className={`text-center col-span-4 font-semibold text-3xl m-5 ${searchedProducts.length ? "hidden" : ""}`}>No App Found!</p>
             {searchedProducts.map(product => (
                 <Cards key={product.id} product={product} />
             ))}

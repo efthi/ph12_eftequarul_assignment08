@@ -28,7 +28,7 @@ const Banner = () => {
             <div className='bg-[#7941e9] text-center'>
                 <h3 className='font-bold text-xl md:text-3xl text-[#ffffff] mt-5'>Trusted by Millions,
                      Built for You</h3>
-                <div className='flex flex-col  md:flex-row md:gap-20 justify-center m-10 text-[#ffffff]'>
+                <div className='flex flex-col  md:flex-row md:gap-20 justify-center m-10 text-[#ffffff] '>
                     <div className=''>
                         <p className='text-xs text-gray-300'>Total Downloads</p>
                         <p className='text-6xl font-bold m-5'>29.6M</p>
