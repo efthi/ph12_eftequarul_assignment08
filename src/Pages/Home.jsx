@@ -3,6 +3,7 @@ import Container from '../Components/Container';
 import useProducts from '../hooks/useProducts';
 import Cards from '../Components/Cards';
 import Banner from '../Components/Banner';
+import Skel from '../Components/Skel';
 
 
 const Home = () => {
@@ -23,9 +24,11 @@ const Home = () => {
            
         </div>
         <div className='mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 mb-10 max-w-11/12'>
-            {featuredProducts.map(product => (
+            { loading ? (<Skel count='4'/>) :(
+                featuredProducts.map(product => (
                 <Cards key={product.id} product={product} />
-            ))}
+                )))
+            }
         </div>
         <div className='mx-auto mb-10 text-center'>
             <button onClick={() =>setShowAll(!showAll)} className='btn btn-soft btn-primary'>{showAll ? 'Show Less' : 'Show All'}</button>

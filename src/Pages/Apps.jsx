@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import useProducts from '../hooks/useProducts';
 import Cards from '../Components/Cards';
+import Skel from '../Components/Skel';
 
 const Apps = () => {
     
-    const {products} = useProducts();
+    const {products, loading, error} = useProducts();
     const allProducts = products;
     const [search, setSearch] =useState("");
     const term = search.trim().toLowerCase();
@@ -26,10 +27,14 @@ const Apps = () => {
             </label>
         </div>
         <div className='mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 mb-10 max-w-11/12'>
+            
             <p className={`text-center col-span-4 font-semibold text-3xl m-5 ${searchedProducts.length ? "hidden" : ""}`}>No App Found!</p>
-            {searchedProducts.map(product => (
+            {loading ? (<Skel count='4' />) :
+                (
+                searchedProducts.map(product => (
                 <Cards key={product.id} product={product} />
-            ))}
+            )))
+            }
         </div>
         </>
         
