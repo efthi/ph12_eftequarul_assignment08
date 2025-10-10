@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import useProducts from '../hooks/useProducts';
 import Cards from '../Components/Cards';
 import Skel from '../Components/Skel';
+import app404 from '../../public/assets/App-Error.png';
 
 const Apps = () => {
-    
+   
     const {products, loading, error} = useProducts();
     const allProducts = products;
     const [search, setSearch] =useState("");
@@ -13,7 +14,14 @@ const Apps = () => {
     ? allProducts.filter(product =>
         product.title.toLowerCase().includes(term)) : allProducts;
         
-        // console.log(searchedProducts);
+         console.log(searchedProducts);
+     const [dataReady, setDataReady] = useState(false);
+        useEffect(() => {
+        if (!loading) {
+            setDataReady(true);
+        }
+        }, [loading]);
+
     return (
         <>
         <div>
@@ -28,7 +36,9 @@ const Apps = () => {
         </div>
         <div className='mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 mb-10 max-w-11/12'>
             
-            <p className={`text-center col-span-4 font-semibold text-3xl m-5 ${searchedProducts.length ? "hidden" : ""}`}>No App Found!</p>
+            <p className={`text-center col-span-4 font-semibold text-3xl m-5  ${!dataReady || searchedProducts.length ? "hidden" : ""}`}>No App Found named "{search}"!
+                <img src={app404} alt=""  className="mx-auto mt-4"  />
+            </p>
             {loading ? (<Skel count='4' />) :
                 (
                 searchedProducts.map(product => (
