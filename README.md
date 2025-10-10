@@ -1,18 +1,13 @@
-দারুণ! 🔥
-তাহলে নিচে তোমার প্রজেক্টের **Enhanced & Professional GitHub-ready README.md** দিচ্ছি —
-এতে আছে ব্যাজ, ইমোজি, রঙিন সেকশন, লিংক এবং প্রফেশনাল Markdown ফরম্যাটিং 💎
-
----
-
 ````md
 # 🦸‍♂️ Hero App — HERO IO  
 ### 🚀 Assignment 08 by **Efthaqur Alam (PH-B12)**
 
-[![React](https://img.shields.io/badge/React-19.1.1-61dafb?logo=react)](https://react.dev/)
-[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-4.1.14-38bdf8?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Vite](https://img.shields.io/badge/Vite-7.1.7-FFD62E?logo=vite&logoColor=purple)](https://vitejs.dev/)
-[![License](https://img.shields.io/badge/License-Programming%20Hero%20Assignment-green)](#)
-[![Status](https://img.shields.io/badge/Status-Completed-success)](#)
+[![React](https://img.shields.io/badge/React-19.1.1-61dafb?logo=react&logoColor=white)](https://react.dev/)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-4.1.14-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Vite](https://img.shields.io/badge/Vite-7.1.7-646CFF?logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
+[![License](https://img.shields.io/badge/License-Programming%20Hero%20Assignment-2ea44f?logo=book&logoColor=white)](#)
+[![Status](https://img.shields.io/badge/Status-Completed-success?logo=check&logoColor=white)](#)
+
 
 ---
 
@@ -129,22 +124,6 @@ All rights reserved © 2025 **Efthaqur Alam**
 
 ---
 
-```
-
----
-
-### 🔥 ব্যাখ্যা
-✅ সব হেডিং, ব্যাজ ও টেবিলগুলো GitHub-এ পুরোপুরি রঙিন ও সুন্দরভাবে রেন্ডার হবে।  
-✅ ব্যাজগুলো ব্যবহৃত টুলের ভার্সন ও স্ট্যাটাস বোঝায়।  
-✅ Markdown কোডব্লক ও ফোল্ডার স্ট্রাকচার পরিষ্কারভাবে সাজানো।  
-✅ পেশাদার টোন + অ্যাসাইনমেন্টের ক্রেডিট দুটোই বজায় রাখা হয়েছে।
-
----
-
-তুমি কি চাও আমি এই README-টার  
-📘 “dark theme preview” (যেমন GitHub-এর মতো ব্যাকগ্রাউন্ডে স্ক্রিনশট বা hero banner সহ) সংস্করণও বানিয়ে দিই?  
-মানে GitHub পেজে ওপরে দারুণ ভিজ্যুয়াল দেখাবে 😎
-```
 
 
 # 🦸‍♂️ Assignment 008 — Hero IO
