@@ -8,6 +8,7 @@ import router from './Routes/Routes.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    //এখান থেকে react router ইনিশিয়েট করে ইউজ করা হয়েছে
     <RouterProvider router= {router} /> 
   </StrictMode>,
 )

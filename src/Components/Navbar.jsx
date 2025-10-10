@@ -4,6 +4,7 @@ import logo from '../../public/assets/logo.png';
 import { FaGithub } from "react-icons/fa";
 import { FcHome, FcSmartphoneTablet , FcMultipleInputs   } from "react-icons/fc";
 
+//Navbar section
 const Navbar = () => {
     const gitprofile = 'https://github.com/efthi';
 

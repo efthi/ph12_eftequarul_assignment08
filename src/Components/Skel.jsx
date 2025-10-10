@@ -1,5 +1,6 @@
 import React from 'react';
 
+//Showing loading animation when apps load
 const Skel = ({count}) => {
     return (
         <>

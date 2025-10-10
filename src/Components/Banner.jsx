@@ -2,7 +2,9 @@ import React from 'react';
 import heroimage from '../../public/assets/hero.png';
 import { BsGooglePlay, BsApple  } from "react-icons/bs";
 
+
 const Banner = () => {
+    /*এটা ব্যানার সেকশন */
     const playstore = 'https://play.google.com/store/apps?hl=en';
     const appstore = 'https://www.apple.com/app-store/';
 
@@ -31,7 +33,7 @@ const Banner = () => {
                 <div className='flex flex-col  md:flex-row md:gap-20 justify-center m-10 text-[#ffffff] '>
                     <div className=''>
                         <p className='text-xs text-gray-300'>Total Downloads</p>
-                        <p className='text-6xl font-bold m-5'>29.6M</p>
+                        <p className='text-6xl font-bold m-5'>29.6M </p>
                         <p className='text-xs text-gray-300'>21% More Than Last Month</p>
                     </div>
                     <div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {formatDownloads} from '../utilis/custom';
 import { ToastContainer, toast } from 'react-toastify';
 
+//কি কি এপ ইন্সটল আছে দেখাবে এই পেইজে
 const Installation = () => {
     const [installed, setInstalled] = useState([]);
     const [sortOrder, setSortOrder] = useState('none');

@@ -5,7 +5,7 @@ import Cards from '../Components/Cards';
 import Banner from '../Components/Banner';
 import Skel from '../Components/Skel';
 
-
+//মেইন হোম পেইজ
 const Home = () => {
     const { loading, error, products } = useProducts();
     

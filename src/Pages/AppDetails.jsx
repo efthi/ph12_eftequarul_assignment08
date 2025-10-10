@@ -9,6 +9,7 @@ import iconreview from '../../public/assets/icon-review.png';
 import {formatDownloads } from '../utilis/custom';
 import { ToastContainer, toast } from 'react-toastify';
 
+//App এস ডিটেইল দেখানোর পেইজ
 const AppDetails = () => {
     const [btnStat, setBtnstat] = useState(false);
 

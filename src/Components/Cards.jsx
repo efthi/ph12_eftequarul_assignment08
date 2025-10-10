@@ -3,6 +3,8 @@ import { Link } from 'react-router';
 import { FcDown,  } from "react-icons/fc";
 import {formatDownloads} from '../utilis/custom'
 
+/*Card কম্পোনেন্ট, সব প্রোডাক্টা দেখানোর জন্য, বার বার ব্যবহৃত হবে */ 
+
 const Cards = ({product}) => {
 const {id, image, title, downloads, ratingAvg} = product
 

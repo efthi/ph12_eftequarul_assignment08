@@ -1,6 +1,7 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
+//custom hooks ডেটা আনার জন্য
 const useProducts = () => {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)

@@ -7,6 +7,9 @@ import AppDetails from "../Pages/AppDetails";
 import ErrorPage from '../Pages/ErrorPage'
 
 const router = createBrowserRouter([
+
+  /* Route ডিফাইন করা হয়েছে */
+
   {
     path: '/',
     element: <App />,

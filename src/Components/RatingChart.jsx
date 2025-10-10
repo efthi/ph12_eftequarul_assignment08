@@ -3,6 +3,7 @@ import {
   BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer
 } from "recharts";
 
+//Chart Section
 const RatingChart = ({ ratings }) => {
   return (
     <div className="w-full h-64">

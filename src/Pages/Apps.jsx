@@ -4,17 +4,22 @@ import Cards from '../Components/Cards';
 import Skel from '../Components/Skel';
 import app404 from '../../public/assets/App-Error.png';
 
+//সব এপস দেখাবে App লিংকের পেইজ এটা
 const Apps = () => {
    
     const {products, loading, error} = useProducts();
     const allProducts = products;
+    
+    //সার্চ এরজন্য স্টেট
     const [search, setSearch] =useState("");
+    //সার্চ থেকে ডেটা নিয়ে কাজ করার লজিক    
     const term = search.trim().toLowerCase();
     const searchedProducts = term 
     ? allProducts.filter(product =>
         product.title.toLowerCase().includes(term)) : allProducts;
         
-         console.log(searchedProducts);
+         //console.log(searchedProducts);
+     //এটা করা হয়েছে যাতে লোডিং এর সময় App Not Found টা না যাতে না দেখায়    
      const [dataReady, setDataReady] = useState(false);
         useEffect(() => {
         if (!loading) {

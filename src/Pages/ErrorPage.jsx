@@ -4,7 +4,7 @@ import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import errorimage from '../../public/assets/error-404.png';
 
-
+//এরর পেইজ
 const ErrorPage = () => {
   const error = useRouteError()
   console.error("Route error:", error);
