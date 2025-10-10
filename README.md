@@ -97,15 +97,6 @@ appzone-ea/
 
 ---
 
-## 🌱 Future Improvements
-
-* 🔐 Add User Authentication (Firebase/JWT)
-* 🌓 Dark / Light Theme Toggle
-* 🌍 Multi-language Support
-* ⚡ Performance Optimization with React.lazy() and Suspense
-
----
-
 ## 👨‍💻 Author
 
 **Efthaqur Alam**
